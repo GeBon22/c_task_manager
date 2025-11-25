@@ -59,3 +59,24 @@ void complete_task(Task tasks[], int task_count) {
 
     printf("Task not found.\n");
 }
+
+void save_tasks_to_csv(const Task tasks[], int task_count) {
+    FILE *file = fopen("tasks.csv", "w");
+    if (file == NULL) {
+        printf("Error opening file!\n");
+        return;
+    }
+
+    fprintf(file, "ID, Title, Description, Due Date, Status\n");
+
+    for (int i = 0; i < task_count; i++) {
+        fprintf(file, "%d,%s,%s,%s,%s\n",
+        tasks[i].id,
+        tasks[i].title,
+        tasks[i].description,
+        tasks[i].dueDate,
+        tasks[i].status == 0 ? "Incomplete" : "Complete");
+    }
+    fclose(file);
+    printf("Tasks saved to task.csv\n");
+}

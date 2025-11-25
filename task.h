@@ -13,5 +13,6 @@ void add_task(Task tasks[], int *task_count);
 void view_tasks(const Task tasks[], int task_count);
 void complete_task(Task tasks[], int task_count);
 void initialize_tasks(Task tasks[], int *task_count);
+void save_tasks_to_csv(const Task tasks[], int task_count);
 
 #endif

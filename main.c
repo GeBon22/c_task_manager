@@ -13,10 +13,11 @@ int main() {
         printf("1. Add Task\n");
         printf("2. View Tasks\n");
         printf("3. Complete Task\n");
-        printf("4. Exit\n");
+        printf("4. Save Tasks to CSV File");
+        printf("5. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
-        getchar(); // Consume newline
+        getchar();
 
         switch (choice) {
             case 1:
@@ -29,6 +30,9 @@ int main() {
                 complete_task(tasks, task_count);
                 break;
             case 4:
+                save_tasks_to_csv(tasks, task_count);
+                break;
+            case 5:
                 exit(0);
             default:
                 printf("Invalid choice. Please try again.\n");
